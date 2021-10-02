@@ -11,13 +11,16 @@
         padding: 0 40px;
     }
     &__info{
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(12,80px);
+        gap: 0 20px;
     }
     &__infoBox{
+        grid-column: span 3;
+        grid-row-end: span 2;
         display: flex;
         flex-direction: column;
-        width: 280px;
+        margin-bottom: 56px;
         &-heading{
             text-transform: uppercase;
             font-size: 32px;
@@ -53,9 +56,14 @@
             }
         }
     }
+    &__empty{
+        grid-column: span 1;
+        grid-row-end: span 2;
+    }
     &__route{
-        width: 180px;
-        padding-bottom: 40px;
+        // width: 180px;
+        grid-column: span 2;
+        margin-bottom: 40px;
         &-heading{
             font-size: 16px;
             font-weight: normal;
@@ -104,14 +112,49 @@
 }
 
 
-// /* PC: width >= 1024px */
-// @media only screen and (min-width: 1024px){
-// }
+/* PC: width >= 1024px */
+@media only screen and (min-width: 1024px){
+}
 
-// /* Tablet: width >= 740px and width < 1024px */
-// @media only screen and (min-width: 740px) and (max-width: 1023px){
-// }
+/* Tablet: width >= 740px and width < 1024px */
+@media only screen and (min-width: 740px) and (max-width: 1023px){
+    .footer{
+        padding: 80px 0 64px;
+        &__container{
+            padding: 0 40px;
+        }
+        &__info{
+            display: grid;
+            grid-template-columns: repeat(8,66px);
+        }
+        &_infoBox{
+            grid-column: span 3;
+        }
+        &__route{
+            grid-column: span 2;
+        }
+    }
+}
 
-// /* Mobile: width < 740px */
-// @media only screen and (max-width: 739px){
-// }
+/* Mobile: width < 740px */
+@media only screen and (max-width: 739px){
+    .footer{
+        padding: 80px 0 60px;
+        &__container{
+            padding: 0 24px;
+        }
+        &__info{
+            display: grid;
+            grid-template-columns: repeat(4,66px);
+        }
+        &__empty{
+            display: none;
+        }
+        &__infoBox{
+            grid-column: span 4;
+        }
+        &__route{
+            grid-column: span 2;
+        }
+    }
+}
